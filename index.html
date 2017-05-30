@@ -5,6 +5,11 @@
     <title>ECommerce-layout</title>
     <link href="https://fonts.googleapis.com/css?family=Walter+Turncoat" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Meddon" rel="stylesheet">
@@ -28,16 +33,34 @@
       <li class="nav-li" style="padding: 0px 10px 5px 10px; height:64px"><a href="#">category</a></li>
       <li class="nav-li" style="padding: 0px 10px 0px 10px; height:64px"><a href="#">contact us</a></li>
       <!-- <li><a class="modal-trigger" href="modal1">TEST</a></li> -->
-      <a class="modal-trigger" onclick="$('#modal1').modal('open');"><li class="nav-li" style="padding: 5px 10px 0px 10px; height:64px"><img src="img/white-cart.png" alt="trolley" style="height: 20px;"></li></a>
+      <a class="modal-trigger" href="#modal1"><li class="nav-li" style="padding: 5px 10px 0px 10px; height:64px"><img src="img/white-cart.png" alt="trolley" style="height: 20px;"></li></a>
     </nav>
 
     <div id="modal1" class="modal">
     <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
+      <h4>Your Cart</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Nama Barang</th>
+            <th>Jumlah</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1.</td>
+            <td>Red Vintage Gothic</td>
+            <td>2</td>
+            <td>Rp. 300.000,-</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Keep Shopping</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Checkout</a>
     </div>
   </div>
 
@@ -162,13 +185,10 @@
       </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function(){
         $('.slider').slider();
-        $('.modal-trigger').leanModal();
+        $('.modal').modal();
       });
   //     $(document).ready(function() {
   //       $('.modal-trigger').leanModal();
