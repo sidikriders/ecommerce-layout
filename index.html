@@ -6,17 +6,19 @@
     <link href="https://fonts.googleapis.com/css?family=Walter+Turncoat" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script
-  src="https://code.jquery.com/jquery-3.2.1.js"
-  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-  crossorigin="anonymous"></script>
+      src="https://code.jquery.com/jquery-3.2.1.js"
+      integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+      crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Meddon" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata|Indie+Flower|Metamorphous" rel="stylesheet">
-
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
+    <div id="isi">
     <!-- nav-bar -->
 
     <nav id="navbar">
@@ -36,34 +38,6 @@
       <a class="modal-trigger" href="#modal1"><li class="nav-li" style="padding: 5px 10px 0px 10px; height:64px"><img src="img/white-cart.png" alt="trolley" style="height: 20px;"></li></a>
     </nav>
 
-    <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Your Cart</h4>
-      <table>
-        <thead>
-          <tr>
-            <th>No.</th>
-            <th>Nama Barang</th>
-            <th>Jumlah</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1.</td>
-            <td>Red Vintage Gothic</td>
-            <td>2</td>
-            <td>Rp. 300.000,-</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Keep Shopping</a>
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Checkout</a>
-    </div>
-  </div>
-
     <div class="slider">
       <ul class="slides" style="font-family: 'Walter Turncoat', cursive;">
         <li>
@@ -71,6 +45,10 @@
           <div class="caption right-align">
             <h3>Men's Clothes</h3>
             <h5>a horrifiyng mens clothes</h5>
+            <a v-on:click='getMaleItems' href="#patokan">
+                <img src="img/rsz_1shop-now-button.png" alt="shop"
+                style="margin-top: 0px; height: 50px; width: 180px; filter: invert(100%); transition-duration: 0.3s;" class="shop-now-btn">
+            </a>
           </div>
         </li>
         <li>
@@ -78,6 +56,10 @@
           <div class="caption center-align">
             <h3>Womens Apparel</h3>
             <h5>Gotchick is in the house!</h5>
+            <a v-on:click='getFemaleItems' href="#patokan">
+                <img src="img/rsz_1shop-now-button.png" alt="shop"
+                style="margin-top: 0px; height: 50px; width: 180px; filter: invert(100%); transition-duration: 0.3s;" class="shop-now-btn">
+            </a>
           </div>
         </li>
         <li>
@@ -85,6 +67,10 @@
           <div class="caption left-align">
             <h3>Unisex Collections</h3>
             <h5>when you dont know what to wear</h5>
+            <a v-on:click='getUnisexItems' href="#patokan">
+                <img src="img/rsz_1shop-now-button.png" alt="shop"
+                style="margin-top: 0px; height: 50px; width: 180px; filter: invert(100%); transition-duration: 0.3s;" class="shop-now-btn">
+            </a>
           </div>
         </li>
         <li>
@@ -92,109 +78,141 @@
           <div class="caption center-align" style="">
             <h3>Accessories</h3>
             <h5>will multiply your gothickness by 10</h5>
+            <a v-on:click='getAccessoriesItems' href="#patokan">
+                <img src="img/rsz_1shop-now-button.png" alt="shop"
+                style="margin-top: 0px; height: 50px; width: 180px; filter: invert(100%); transition-duration: 0.3s;" class="shop-now-btn">
+            </a>
           </div>
         </li>
       </ul>
     </div>
 
-    <div class="isi">
 
-      <h3 class="center-align" style="font-family: 'Meddon', cursive; margin:35px auto 50px auto">Men's Apparel</h3>
 
-      <div class="col s11 baju" style="margin: 1% 4.2%;">
-        <div class="baju-deret-1" style="border: 1px solid black; width: 18%; margin-right: 3%; margin-bottom: 20px; padding: 10px;">
-          <img class="materialboxed" src="https://d2fzf9bbqh0om5.cloudfront.net/images/284987/original/black_gothic_long_sleeves_chiffon_emnossing_blouse_for_men_shirts_5.jpg?1442715575" alt="baju"
-          style="width: 100%;">
-          <h5>Casual Gothic</h5>
-          <p class="harga">Rp. 150.000,-</p>
-          <button type="button" class="add-to-cart">BUY</button>
-        </div>
-
-        <div class="baju-deret-2" style="border: 1px solid black; width: 18%; margin-right: 2%; margin-bottom: 20px; padding: 10px">
-          <img class="materialboxed" src="http://www-kinkyangel-co-uk.dualstackcdn.com/images/products/listing/punk-rave-mens-military-style-spiky-coat-y-366-y-366.jpg" alt="baju"
-          style="width: 100%;">
-          <h5>Punk Gothic</h5>
-          <p class="harga">Rp. 150.000,-</p>
-          <button type="button" class="add-to-cart">BUY</button>
-        </div>
-
-        <div class="baju-deret-3" style="border: 1px solid black; width: 18%; margin-right: 2%; margin-bottom: 20px; padding: 10px">
-          <img class="materialboxed" src="http://3.bp.blogspot.com/-_KumScPgYRA/UbGTjIVP0AI/AAAAAAAAAKs/DJRvUsZYzjI/s1600/tumblr_mfr2xm0pbh1s0ai4qo1_400.jpg" alt="baju"
-          style="width: 100%;">
-          <h5>Visual Kei</h5>
-          <p class="harga">Rp. 150.000,-</p>
-          <button type="button" class="add-to-cart">BUY</button>
-        </div>
-
-        <div class="baju-deret-4" style="border: 1px solid black; width: 18%; margin-right: 3%; margin-bottom: 20px; padding: 10px">
-          <img class="materialboxed" src="http://www.the-black-angel.com/3684-thickbox_default/bat-shirt-raven.jpg" alt="baju"
-          style="width: 100%;">
-          <h5>Drac Gothic</h5>
-          <p class="harga">Rp. 150.000,-</p>
-          <button type="button" class="add-to-cart">BUY</button>
-        </div>
-
-        <div class="baju-deret-5" style="border: 1px solid black; width: 18%; margin-bottom: 20px; padding: 10px">
-          <img class="materialboxed" src="https://d2fzf9bbqh0om5.cloudfront.net/images/415257/original/rebelsmarket_red_vintage_gothic_swallow_tail_jacket_for_men_coats_5.jpg?1483140930" alt="baju"
-          style="width: 100%;">
-          <h5>Red Vintage Gothic</h5>
-          <p class="harga">Rp. 150.000,-</p>
-          <button type="button" class="add-to-cart">BUY</button>
-        </div>
-
-        <div class="baju-deret-1" style="border: 1px solid black; width: 18%; margin-right: 3%; margin-bottom: 20px; padding: 10px;">
-          <img class="materialboxed" src="https://d2fzf9bbqh0om5.cloudfront.net/images/284987/original/black_gothic_long_sleeves_chiffon_emnossing_blouse_for_men_shirts_5.jpg?1442715575" alt="baju"
-          style="width: 100%;">
-          <h5>Casual Gothic</h5>
-          <p class="harga">Rp. 150.000,-</p>
-          <button type="button" class="add-to-cart">BUY</button>
-        </div>
-
-        <div class="baju-deret-2" style="border: 1px solid black; width: 18%; margin-right: 2%; margin-bottom: 20px; padding: 10px">
-          <img class="materialboxed" src="http://www-kinkyangel-co-uk.dualstackcdn.com/images/products/listing/punk-rave-mens-military-style-spiky-coat-y-366-y-366.jpg" alt="baju"
-          style="width: 100%;">
-          <h5>Punk Gothic</h5>
-          <p class="harga">Rp. 150.000,-</p>
-          <button type="button" class="add-to-cart">BUY</button>
-        </div>
-
-        <div class="baju-deret-3" style="border: 1px solid black; width: 18%; margin-right: 2%; margin-bottom: 20px; padding: 10px">
-          <img class="materialboxed" src="http://3.bp.blogspot.com/-_KumScPgYRA/UbGTjIVP0AI/AAAAAAAAAKs/DJRvUsZYzjI/s1600/tumblr_mfr2xm0pbh1s0ai4qo1_400.jpg" alt="baju"
-          style="width: 100%;">
-          <h5>Visual Kei</h5>
-          <p class="harga">Rp. 150.000,-</p>
-          <button type="button" class="add-to-cart">BUY</button>
-        </div>
-
-        <div class="baju-deret-4" style="border: 1px solid black; width: 18%; margin-right: 3%; margin-bottom: 20px; padding: 10px">
-          <img class="materialboxed" src="http://www.the-black-angel.com/3684-thickbox_default/bat-shirt-raven.jpg" alt="baju"
-          style="width: 100%;">
-          <h5>Drac Gothic</h5>
-          <p class="harga">Rp. 150.000,-</p>
-          <button type="button" class="add-to-cart">BUY</button>
-        </div>
-
-        <div class="baju-deret-5" style="border: 1px solid black; width: 18%; margin-bottom: 20px; padding: 10px">
-          <img class="materialboxed" src="https://d2fzf9bbqh0om5.cloudfront.net/images/415257/original/rebelsmarket_red_vintage_gothic_swallow_tail_jacket_for_men_coats_5.jpg?1483140930" alt="baju"
-          style="width: 100%;">
-          <h5>Red Vintage Gothic</h5>
-          <p class="harga">Rp. 150.000,-</p>
-          <button type="button" class="add-to-cart">BUY</button>
-        </div>
-
+    <div id="modal1" class="modal">
+      <div class="modal-content cart-content">
+        <h4>Your Cart</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Nama Barang</th>
+              <th>Jumlah</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1.</td>
+              <td>Red Vintage Gothic</td>
+              <td>2</td>
+              <td>Rp. 300.000,-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Keep Shopping</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Checkout</a>
       </div>
     </div>
+
+
+    <div id="patokan" class="scrollspy">
+
+    </div>
+    <h3 id="category-header" class="center-align" style="font-family: 'Meddon', cursive; margin:100px auto 70px auto">{{categoryHeader}}</h3>
+
+    <div class="col s12 baju" style="margin: 1% 0;">
+      <div class="">
+
+      </div>
+     <div class="row" id="rowBaju">
+       <div v-for="item in items" class="col s2 baju-deret" style="border: 0.3px solid #e0e0e0; margin-left: 1.5%; margin-right: 1.5%; margin-bottom: 20px; padding: 0; min-height: 316px;">
+         <div class="img-baju" style="max-height: 180px; overflow: hidden;">
+             <img :src=item.image alt="baju"
+             style="width: 100%;">
+         </div>
+         <div class="content-baju">
+           <h5>{{item.name}}</h5>
+           <p class="harga">Rp. {{item.price}},-</p>
+           <button type="button" class="add-to-cart">BUY</button>
+         </div>
+       </div>
+     </div>
+    </div>
+  </div>
 
     <script type="text/javascript">
       $(document).ready(function(){
         $('.slider').slider();
         $('.modal').modal();
+        $('.scrollspy').scrollSpy();
+        $('.collapsible').collapsible();
       });
-  //     $(document).ready(function() {
-  //       $('.modal-trigger').leanModal();
-  //     });
-  // });
+      var app = new Vue({
+        el: '#isi',
+        data: {
+          categoryHeader: "Gothicarel",
+          items: [],
+          cart: [],
+        },
+        methods: {
+          getMaleItems: function() {
+            var self = this
+            axios.get("http://localhost:3000/items/male")
+            .then(function(response) {
+              self.items = response.data;
+              self.categoryHeader = 'Male Apparel';
+              console.log(self.categoryHeader);
+              console.log(response.data)
+            })
+            .catch((err) => {
+              console.log(err);
+            })
+          },
+          getFemaleItems: function() {
+            var self = this
+            axios.get("http://localhost:3000/items/female")
+            .then(function(response) {
+              self.items = response.data;
+              self.categoryHeader = 'Female Apparel';
+              console.log(self.categoryHeader);
+              console.log(response.data)
+            })
+            .catch((err) => {
+              console.log(err);
+            })
+          },
+          getUnisexItems: function() {
+            var self = this
+            axios.get("http://localhost:3000/items/unisex")
+            .then(function(response) {
+              self.items = response.data;
+              self.categoryHeader = 'Unisex Apparel';
+              console.log(self.categoryHeader);
+              console.log(response.data)
+            })
+            .catch((err) => {
+              console.log(err);
+            })
+          },
+          getAccessoriesItems: function() {
+            var self = this
+            axios.get("http://localhost:3000/items/accessories")
+            .then(function(response) {
+              self.items = response.data;
+              self.categoryHeader = 'Accessories';
+              console.log(self.categoryHeader);
+              console.log(response.data)
+            })
+            .catch((err) => {
+              console.log(err);
+            })
+          }
 
+        }
+      })
 
     </script>
   </body>
